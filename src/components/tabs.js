@@ -1,3 +1,4 @@
+  import axios from "axios"
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -23,7 +24,7 @@ const Tabs = (topics) => {
     tab.textContent = `${item}`;
     tabTopics.append(tab);
   });
-  console.log(tabTopics)
+  return tabTopics
 }
 
 
@@ -35,7 +36,13 @@ const Tabs = (topics) => {
 // Append the tabs to the element in the DOM that matches the selector passed to the function.
 //
 const tabsAppender = (selector) => {
-
+axios
+.get('https://lambda-times-api.herokuapp.com/topics')
+.then((res) => {
+  const topics = res.data.topics
+  document.querySelector(selector).appendChild(Tabs(topics));
+})
+.catch()
 }
 
 export { Tabs, tabsAppender }
