@@ -1,22 +1,43 @@
+// TASK 5
+// ---------------------
+// Implement this function, which should return the markup you see below.
+// It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
+// The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
+// The text inside elements will be set using their `textContent` property (NOT `innerText`).
+// Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
+//
+// <div class="card">
+//   <div class="headline">{ headline }</div>
+//   <div class="author">
+//     <div class="img-container">
+//       <img src={ authorPhoto }>
+//     </div>
+//     <span>By { authorName }</span>
+//   </div>
+// </div>
+//
 const Card = (article) => {
-  // TASK 5
-  // ---------------------
-  // Implement this function, which should return the markup you see below.
-  // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
-  // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
-  // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-  // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
-  //
-  // <div class="card">
-  //   <div class="headline">{ headline }</div>
-  //   <div class="author">
-  //     <div class="img-container">
-  //       <img src={ authorPhoto }>
-  //     </div>
-  //     <span>By { authorName }</span>
-  //   </div>
-  // </div>
-  //
+  //Create Elements
+  const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const authorContainer = document.createElement('div');
+  const imgContainer = document.createElement('div');
+  const img = document.createElement('img');
+  const authorName = document.createElement('span');
+  //Add classes and attributes
+  card.classList.add('card');
+  headline.classList.add('headline');
+  authorContainer.classList.add('author');
+  imgContainer.classList.add('img-container');
+  img.src = `${article.authorPhoto}`;
+  //Add textContent
+  headline.textContent = `${article.headline}`;
+  authorName.textContent = `By ${article.authorName}`;
+  //Create hierarchy
+  card.append(headline, authorContainer);
+  authorContainer.append(imgContainer, authorName);
+  imgContainer.appendChild(img);
+  console.log(card);
 }
 
 const cardAppender = (selector) => {

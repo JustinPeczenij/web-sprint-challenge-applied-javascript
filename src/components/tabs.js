@@ -42,7 +42,9 @@ axios
   const topics = res.data.topics
   document.querySelector(selector).appendChild(Tabs(topics));
 })
-.catch()
+.catch((err) => {
+  console.log(err)
+})
 }
 
 export { Tabs, tabsAppender }
