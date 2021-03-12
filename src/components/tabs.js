@@ -1,4 +1,3 @@
-const Tabs = (topics) => {
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -13,6 +12,8 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+const Tabs = (topics) => {
+
 }
 
 const tabsAppender = (selector) => {
