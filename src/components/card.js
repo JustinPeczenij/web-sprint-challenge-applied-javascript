@@ -1,3 +1,4 @@
+import axios from "axios";
 // TASK 5
 // ---------------------
 // Implement this function, which should return the markup you see below.
@@ -40,15 +41,43 @@ const Card = (article) => {
   console.log(card);
 }
 
+// TASK 6
+// ---------------------
+// Implement this function that takes a css selector as its only argument.
+// It should obtain articles from this endpoint: `https://lambda-times-api.herokuapp.com/articles`
+// However, the articles do not come organized in a single, neat array. Inspect the response closely!
+// Create a card from each and every article object in the response, using the Card component.
+// Append each card to the element in the DOM that matches the selector passed to the function.
+//
 const cardAppender = (selector) => {
-  // TASK 6
-  // ---------------------
-  // Implement this function that takes a css selector as its only argument.
-  // It should obtain articles from this endpoint: `https://lambda-times-api.herokuapp.com/articles`
-  // However, the articles do not come organized in a single, neat array. Inspect the response closely!
-  // Create a card from each and every article object in the response, using the Card component.
-  // Append each card to the element in the DOM that matches the selector passed to the function.
-  //
+  axios
+  .get('https://lambda-times-api.herokuapp.com/articles')
+  .then((res) => {
+    console.log(res.data.articles)
+    const articles = res.data.articles;
+    for(let key in articles) {
+      console.log(articles[key])
+      for(let k in articles[key]) {
+        const card = Card(k);
+        document.querySelector(selector).appendChild(card);
+      }
+    }
+  })
+  .catch()
 }
-
 export { Card, cardAppender }
+// const cardAppender = (selector) => {
+//   axios
+//   .get('https://lambda-times-api.herokuapp.com/articles')
+//   .then((res) => {
+//     console.log(res.data.articles)
+//     const arrays = res.data.articles;
+//     arrays.forEach((item) => {
+//       item.forEach((object) => {
+//         const card = Card(object);
+//         document.querySelector(selector).appendChild(card);
+//       })
+//     })
+//   })
+//   .catch()
+// }
