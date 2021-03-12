@@ -13,8 +13,26 @@
   // </div>
   //
 const Tabs = (topics) => {
-
+  //create elements
+  const tabTopics = document.createElement('div');
+  const tab1 = document.createElement('div');
+  const tab2 = document.createElement('div');
+  const tab3 = document.createElement('div');
+  //add attributes
+  tabTopics.classList.add('topics');
+  tab1.classList.add('tab')
+  tab2.classList.add('tab')
+  tab3.classList.add('tab')
+  //create hierarchy
+  tabTopics.append(tab1, tab2, tab3)
+  //create textContent
+  tab1.textContent = `${topics[0]}`;
+  tab2.textContent = `${topics[1]}`;
+  tab3.textContent = `${topics[2]}`;
+  console.log(tabTopics)
 }
+const x = ['js', 'bootstrap', 'tech']
+Tabs(x)
 
 const tabsAppender = (selector) => {
   // TASK 4
