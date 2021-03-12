@@ -13,35 +13,29 @@
   // </div>
   //
 const Tabs = (topics) => {
-  //create elements
-  const tabTopics = document.createElement('div');
-  const tab1 = document.createElement('div');
-  const tab2 = document.createElement('div');
-  const tab3 = document.createElement('div');
-  //add attributes
+  //create topics element and add class
+  const tabTopics = document.createElement('div');  
   tabTopics.classList.add('topics');
-  tab1.classList.add('tab')
-  tab2.classList.add('tab')
-  tab3.classList.add('tab')
-  //create hierarchy
-  tabTopics.append(tab1, tab2, tab3)
-  //create textContent
-  tab1.textContent = `${topics[0]}`;
-  tab2.textContent = `${topics[1]}`;
-  tab3.textContent = `${topics[2]}`;
+  //create element, classList, textContent, and hierarchy forEach item in the array, append to topics
+  topics.forEach((item) => {
+    const tab = document.createElement('div');
+    tab.classList.add('tab');
+    tab.textContent = `${item}`;
+    tabTopics.append(tab);
+  });
   console.log(tabTopics)
 }
-const x = ['js', 'bootstrap', 'tech']
-Tabs(x)
 
+
+// TASK 4
+// ---------------------
+// Implement this function which takes a css selector as its only argument.
+// It should obtain topics from this endpoint: `https://lambda-times-api.herokuapp.com/topics`
+// Find the array of topics inside the response, and create the tabs using the Tabs component.
+// Append the tabs to the element in the DOM that matches the selector passed to the function.
+//
 const tabsAppender = (selector) => {
-  // TASK 4
-  // ---------------------
-  // Implement this function which takes a css selector as its only argument.
-  // It should obtain topics from this endpoint: `https://lambda-times-api.herokuapp.com/topics`
-  // Find the array of topics inside the response, and create the tabs using the Tabs component.
-  // Append the tabs to the element in the DOM that matches the selector passed to the function.
-  //
+
 }
 
 export { Tabs, tabsAppender }
