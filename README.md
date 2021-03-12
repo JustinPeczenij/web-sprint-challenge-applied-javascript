@@ -75,7 +75,12 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+    The Document Object Model is an object representation of the HTML elements on a webpage
 2. What is an event?
+    An event is any type of user interaction on a webpage. We can listen to that event and execute a function when the event happens.
 3. What is an event listener?
+    An event listener represents is a function that can execute when an event is triggered.
 4. Why would we convert a NodeList into an Array?
+    When we use querySelectorAll it returns a nodeList of the selected elements. We can't run forEach() on the nodeList to loop through the items because forEach() is an array method. We must convert the nodeList using Array.from() before running the forEach() loop so that we can run our function on every loop.
 5. What is a component?
+    A component is a bundle of HTML, CSS, and JS brought together for reuse in an application. We can create elements in JavaScript, style the given elements or classes of the elements, and append them anywhere on our HTML.
